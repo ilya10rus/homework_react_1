@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import React from 'react';
 // Императивный подход
 //function App() {
 //  return (
@@ -30,30 +31,36 @@ import './App.css';
 //Декларативный подход 
 
 function App(){
+	return  React.createElement("div",
+		{ className: "App" },
+		
+		React.createElement( "header",
+		{ className: "App-header" },
+		
+		React.createElement("img", 
+		{
+			src: logo,
+			className: "App-logo",
+			alt: "logo"
+		}),
 
-	const container = document.createElement('div');
-	const header = document.createElement('header');
-	const image = document.createElement('img');
-	const parag = document.createElement('p');
-	const text = document.createElement('a');
-	const currentYear = document.createElement('div');
+		React.createElement( "p", null, "Edit ",
 
-	container.className = 'App';
-	header.className = 'App-header';
-	image.className = 'App-logo'
-	image.src = `${logo}`;
-	image.alt = 'logo';
-	parag.textContent = 'Edit src/App.js and save to reload.';
-	text.className = 'App-link';
-	text.href = 'https://reactjs.org';
-	text.target = '_blank';
-	text.rel = 'noopener noreferrer';
-	text.textContent = 'Learn React';
-	currentYear.textContent = `${new Date().getFullYear()}`;
-
-	header.append(image,parag,text,currentYear);
-	container.append(header);
-	document.body.append(container);
+		React.createElement("code", null, "src/App.js"),
+		" and save to reload."
+		),
+		React.createElement( "a",
+			{
+				className: "App-link",
+				href: "https://reactjs.org",
+				target: "_blank",
+				rel: "noopener noreferrer"
+			},
+			"Learn React"
+		),
+			React.createElement("div", null, new Date().getFullYear())
+		)
+	);
 } 
 
 export default App;
